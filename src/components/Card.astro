@@ -4,10 +4,10 @@ const { event } = Astro.props;
 
 ---
 
-<a href={event.url} target="_blank" class="rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto">
+<a href={event.url} target="_blank" rel="noreferrer" class="rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto">
   
   <div class="overflow-hidden">
-    <img src={event.image} class="w-full h-48 group-hover:scale-110 transition-all ease-in-out duration-150 object-cover md:object-fill" alt="event image"/>
+    <img src={event.image} class="max-w-full h-auto group-hover:scale-110 transition-all ease-in-out duration-150 object-fill" alt="event image"/>
   </div>
   <section class="p-4 flex flex-col">
     <h2 class="font-sans text-lg font-bold text-gray-700 group-hover:text-blue-700 transition-all ease-in-out duration-100">{event.name}</h2>
