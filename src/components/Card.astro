@@ -9,6 +9,7 @@ const isToday = (someDate) => {
     someDate.getFullYear() == today.getFullYear()
 }
 
+
 ---
 
 <a href={event.url} target="_blank" rel="noreferrer" class="card rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto" style={`--index: ${index};`}>
@@ -27,14 +28,7 @@ const isToday = (someDate) => {
       {event.name}
     </h2>
     <p class="text-gray-600 font-serif mb-4 text-lg flex items-center">
-      {
-        isToday(event.date) && 
-        <span class="flex h-3 w-3 relative mr-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-        </span>
-      }
-      {isToday(event.date) ? "Today" : event.date.toLocaleDateString("us-PT")}
+      {event.date.toLocaleString("us-PT")}
     </p>
     <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
