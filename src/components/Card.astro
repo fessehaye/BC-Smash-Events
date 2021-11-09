@@ -27,8 +27,8 @@ const isToday = (someDate) => {
     <h2 class="font-sans flex items-center text-lg font-bold text-gray-700 group-hover:text-blue-700 transition-all ease-in-out duration-100">
       {event.name}
     </h2>
-    <p class="text-gray-600 font-serif mb-4 text-lg flex items-center">
-      {event.date.toLocaleString("us-PT")}
+    <p class="text-gray-600 font-serif mb-4 text-lg">
+      {event.date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"})}
     </p>
     <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
