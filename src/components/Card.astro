@@ -34,7 +34,7 @@ const isToday = (someDate) => {
           <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
         </span>
       }
-      {isToday(event.date) ? "Today" : event.date.toLocaleDateString("en-US")}
+      {isToday(event.date) ? "Today" : event.date.toLocaleDateString("us-PT")}
     </p>
     <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
