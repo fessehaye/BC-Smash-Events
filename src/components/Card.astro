@@ -1,18 +1,42 @@
 ---
 // Example: <SomeComponent greeting="(Optional) Hello" name="Required Name" />
-const { event } = Astro.props;
+const { event,index } = Astro.props;
+
+const isToday = (someDate) => {
+  const today = new Date()
+  return someDate.getDate() == today.getDate() &&
+    someDate.getMonth() == today.getMonth() &&
+    someDate.getFullYear() == today.getFullYear()
+}
 
 ---
 
-<a href={event.url} target="_blank" rel="noreferrer" class="rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto">
+<a href={event.url} target="_blank" rel="noreferrer" class="card rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto" style={`--index: ${index};`}>
   
-  <div class="overflow-hidden">
-    <img src={event.image} class="max-w-full h-auto group-hover:scale-110 transition-all ease-in-out duration-150 object-fill" alt="event image"/>
+  <div class="overflow-hidden text-blue-700 bg-blue-100 grid place-items-center">
+    {
+      event.image ? <img src={event.image} class="w-full h-full group-hover:scale-110 transition-all ease-in-out duration-150 object-fill" alt="event image"/> :
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 group-hover:scale-110 transition-all ease-in-out duration-150 object-fill" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    }
   </div>
   <section class="p-4 flex flex-col">
-    <h2 class="font-sans text-lg font-bold text-gray-700 group-hover:text-blue-700 transition-all ease-in-out duration-100">{event.name}</h2>
-    <p class="text-gray-600 font-serif mb-4">{event.date.toLocaleDateString("en-US")}</p>
-    <p class="text-gray-700 text-sm font-serif ">{event.city}, BC</p>
+    
+    <h2 class="font-sans flex items-center text-lg font-bold text-gray-700 group-hover:text-blue-700 transition-all ease-in-out duration-100">
+      {event.name}
+    </h2>
+    <p class="text-gray-600 font-serif mb-4 text-lg flex items-center">
+      {
+        isToday(event.date) && 
+        <span class="flex h-3 w-3 relative mr-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        </span>
+      }
+      {isToday(event.date) ? "Today" : event.date.toLocaleDateString("en-US")}
+    </p>
+    <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
       {event.games.map((game) => {
         let pillClass = `bg-pink-700`;
@@ -22,7 +46,7 @@ const { event } = Astro.props;
         else if(game === "P+") {
           pillClass = `bg-red-700`;
         }
-        return <div class={`${pillClass} text-white rounded-2xl px-2 py-1 text-sm font-bold space-x-4 uppercase group-hover:bg-blue-700 transition-all ease-in-out duration-100`}>{game}</div>
+        return <div class={`${pillClass} text-white rounded-2xl px-2 py-1 text-sm font-bold space-x-4 uppercase transition-all ease-in-out duration-100`}>{game}</div>
       })}
     </div>
   </section>
