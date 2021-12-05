@@ -69,7 +69,7 @@ if(data) {
     // Check that service workers are supported
     if ('serviceWorker' in navigator) {
       // Use the window load event to keep the page load performant
-      navigator.serviceWorker.register("sw.js").then(swReg => { }).catch(err => {
+      navigator.serviceWorker.register("./sw.js").then(swReg => { }).catch(err => {
           console.error('Service Worker Error', err);
       });
     }
