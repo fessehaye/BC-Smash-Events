@@ -9,7 +9,7 @@ const isToday = (someDate) => {
     someDate.getFullYear() == today.getFullYear()
 }
 
-
+const games = event.games.sort();
 ---
 
 <a href={event.url} target="_blank" rel="noreferrer" class="card rounded-lg overflow-hidden shadow-xl border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto" style={`--index: ${index};`}>
@@ -32,7 +32,7 @@ const isToday = (someDate) => {
     </p>
     <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
-      {event.games.map((game) => {
+      {games.map((game) => {
         let pillClass = `bg-pink-700`;
         if (game === "Melee") {
           pillClass = `bg-green-700`;
