@@ -30,7 +30,7 @@ const games = event.games.sort();
     <p class="text-gray-600 font-serif mb-4 text-lg">
       {event.date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"})}
     </p>
-    <p class="text-gray-700 text-base font-serif ">{event.city}, BC</p>
+    <p class="text-gray-700 text-base font-serif mb-1">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
       {games.map((game) => {
         let pillClass = `bg-pink-700`;
