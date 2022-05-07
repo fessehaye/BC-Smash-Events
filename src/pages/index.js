@@ -10,7 +10,17 @@ const intro = gsap.fromTo(
     opacity: 0,
     y: 100,
   },
-  { duration: 0.5, stagger: 0.3, opacity: 1, y: 0 }
+  {
+    duration: 0.5,
+    stagger: 0.3,
+    opacity: 1,
+    y: 0,
+    onComplete: () => {
+      cards.forEach((card) => {
+        card.classList.remove("opacity-0");
+      });
+    },
+  }
 );
 
 buttons.forEach((button) => {

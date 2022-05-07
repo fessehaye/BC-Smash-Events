@@ -24,13 +24,21 @@ buttons.forEach((button) => {
     cards.forEach((card) => {
       if (!card.dataset.games.includes(filter)) {
         card.classList.toggle("hidden");
+        card.classList.toggle("opacity-0");
       }
     });
 
     Flip.from(state, {
-      duration: 0.3,
+      duration: 0.5,
       stagger: 0.1,
-      ease: "power1.inOut",
+      scale: true,
+      ease: "power3.inOut",
+      onEnter: (elements) =>
+        gsap.fromTo(
+          elements,
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1, duration: 1 }
+        ),
     });
   });
 });
