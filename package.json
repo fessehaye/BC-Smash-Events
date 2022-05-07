@@ -11,5 +11,8 @@
   "devDependencies": {
     "astro": "^0.20.12",
     "tailwindcss": "^2.1.2"
+  },
+  "dependencies": {
+    "gsap": "^3.10.4"
   }
 }
