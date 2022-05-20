@@ -83,7 +83,7 @@ if(data) {
     import '../script/animate.js';
   </script>
   <script is:inline>
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && !location.href.includes('localhost')) {
       // Register a service worker hosted at the root of the
       // site using the default scope.
       navigator.serviceWorker.register('sw.js').then(function(registration) {
