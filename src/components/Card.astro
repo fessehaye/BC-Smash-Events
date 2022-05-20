@@ -5,7 +5,7 @@ const { event,index } = Astro.props;
 const games = event.games.sort();
 ---
 
-<a href={event.url} target="_blank" rel="noreferrer" class="card opacity-0 rounded-lg overflow-hidden shadow-2xl shadow-cyan-400/50 border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto" style={`--index: ${index};`} data-games={games.join(",")}>
+<a href={event.url} target="_blank" rel="noreferrer" class="card opacity-0 rounded-lg overflow-hidden shadow-2xl shadow-cyan-400/40 border-white border bg-gray-100 relative grid grid-rows-2 hover:shadow-3xl group h-96 lg:h-auto" style={`--index: ${index};`} data-games={games.join(",")}>
   
   <div class="overflow-hidden text-blue-700 bg-blue-100 grid place-items-center">
     {

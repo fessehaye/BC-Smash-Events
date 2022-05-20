@@ -2,8 +2,11 @@ import gsap from "gsap";
 
 const cards = document.querySelectorAll("a.card");
 const buttons = document.querySelectorAll("button");
+const tl = gsap.timeline({});
 
-const intro = gsap.fromTo(
+tl.to(".filter-container,h1", { autoAlpha: 1, duration: 0.3 });
+
+tl.fromTo(
   cards,
   {
     ease: "power1.inOut",
@@ -25,6 +28,6 @@ const intro = gsap.fromTo(
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    intro.progress(1);
+    tl.progress(1);
   });
 });
