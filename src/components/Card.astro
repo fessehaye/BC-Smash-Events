@@ -26,12 +26,12 @@ const games = event.games.sort();
     <p class="text-gray-700 text-base font-serif mb-1">{event.city}, BC</p>
     <div class="flex mt-auto mb-2 space-x-2">
       {games.map((game) => {
-        let pillClass = `bg-pink-700`;
+        let pillClass = `bg-pink-800`;
         if (game === "Melee") {
-          pillClass = `bg-green-700`;
+          pillClass = `bg-green-800`;
         }
         else if(game === "P+") {
-          pillClass = `bg-red-700`;
+          pillClass = `bg-red-800`;
         }
         return <div class={`${pillClass} text-white rounded-2xl px-2 py-1 text-sm font-bold space-x-4 uppercase transition-all ease-in-out duration-100`}>{game}</div>
       })}

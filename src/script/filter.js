@@ -12,9 +12,9 @@ buttons.forEach((button) => {
     const filter = e.target.dataset.filter;
 
     if (filter === "Melee") {
-      button.classList.toggle("bg-green-700");
+      button.classList.toggle("bg-green-800");
     } else {
-      button.classList.toggle("bg-pink-700");
+      button.classList.toggle("bg-pink-800");
     }
 
     gsap.set(cards, { opacity: 1, y: 0 });
