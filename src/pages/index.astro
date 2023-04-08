@@ -74,6 +74,16 @@ if (data) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#5c5c5c" />
     <link rel="manifest" href="/manifest.json" />
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" defer></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function () {
+        OneSignal.init({
+          appId: "04872f34-0c44-4dd1-99bc-d82c57e4d3a0",
+        });
+      });
+    </script>
   </head>
 
   <body class="flex flex-col min-h-screen relative">
