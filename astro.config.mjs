@@ -4,5 +4,8 @@ import AstroPWA from "@vite-pwa/astro";
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   // Enable Tailwind by telling Astro where your Tailwind config file lives.
-  integrations: [tailwind(), AstroPWA()],
+  integrations: [tailwind(), AstroPWA({
+    registerType: 'autoUpdate',
+    injectRegister: 'auto'
+  })],
 });
