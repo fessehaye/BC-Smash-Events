@@ -4,7 +4,7 @@ import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
 import Filter from "../components/Filter.astro";
 import "../styles/global.css";
-const response = await fetch("https://dev--bcevents--fessehaye.autocode.dev/");
+const response = await fetch("https:www.bcsmash.ca/.netlify/functions/bc-data");
 const data = await response.json();
 let events = [];
 
@@ -48,7 +48,10 @@ if (data) {
       name="description"
       content="View the latest BC smash events for Melee, Ultimate and P+"
     />
-    <meta name="google-site-verification" content="PnfT6Qv1k9HrkAKvbKd-wF_C5DhV3t-m8V8NKC6e75o" />
+    <meta
+      name="google-site-verification"
+      content="PnfT6Qv1k9HrkAKvbKd-wF_C5DhV3t-m8V8NKC6e75o"
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
