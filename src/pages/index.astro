@@ -22,7 +22,7 @@ const gamesNames = {
   1386: "Ultimate",
 };
 
-if (data) {
+if (data && data.length > 0) {
   events = data.map((e) => {
     return {
       name: e.name,
