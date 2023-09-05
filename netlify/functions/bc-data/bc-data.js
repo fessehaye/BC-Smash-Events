@@ -1,6 +1,6 @@
 const { GraphQLClient, gql } = require("graphql-request");
 
-module.exports.handler = async (context) => {
+module.exports.handler = async () => {
   const endpoint = "https://api.smash.gg/gql/alpha";
 
   const graphQLClient = new GraphQLClient(endpoint, {
@@ -46,5 +46,8 @@ module.exports.handler = async (context) => {
   const data = await graphQLClient.request(query);
 
   // endpoints are executed as functions, click [> Run] below to test
-  return data.tournaments.nodes;
+  return {
+    statusCode: 200,
+    body: JSON.stringify(data.tournaments.nodes),
+  };
 };
