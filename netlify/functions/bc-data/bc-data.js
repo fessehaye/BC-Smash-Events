@@ -1,6 +1,6 @@
 const { GraphQLClient, gql } = require("graphql-request");
 
-module.exports = async (context) => {
+module.exports.handler = async (context) => {
   const endpoint = "https://api.smash.gg/gql/alpha";
 
   const graphQLClient = new GraphQLClient(endpoint, {
