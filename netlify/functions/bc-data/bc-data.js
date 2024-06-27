@@ -43,11 +43,20 @@ module.exports.handler = async () => {
     }
   `;
 
-  const data = await graphQLClient.request(query);
+  try {
+    const data = await graphQLClient.request(query);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data.tournaments.nodes),
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      error
+    }
+  }
+  
 
   // endpoints are executed as functions, click [> Run] below to test
-  return {
-    statusCode: 200,
-    body: JSON.stringify(data.tournaments.nodes),
-  };
+  
 };
