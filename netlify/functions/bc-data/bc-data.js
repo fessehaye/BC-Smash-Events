@@ -44,7 +44,9 @@ module.exports.handler = async () => {
   `;
 
   try {
+    console.log("Sending GraphQL request...");
     const data = await graphQLClient.request(query);
+    console.log("GraphQL request successful:", data);
     return {
       statusCode: 200,
       headers: {
@@ -55,6 +57,7 @@ module.exports.handler = async () => {
       body: JSON.stringify(data.tournaments.nodes),
     };
   } catch (error) {
+    console.error("GraphQL request failed:", error);
     return {
       statusCode: 500,
       headers: {
