@@ -47,11 +47,21 @@ module.exports.handler = async () => {
     const data = await graphQLClient.request(query);
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // Allow any origin
+        "Access-Control-Allow-Headers": "Content-Type", // Allow specific headers
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS" // Allow specific methods
+      },
       body: JSON.stringify(data.tournaments.nodes),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // Allow any origin
+        "Access-Control-Allow-Headers": "Content-Type", // Allow specific headers
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS" // Allow specific methods
+      },
       error
     }
   }
