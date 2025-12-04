@@ -16,6 +16,9 @@ try {
 
 let events = [];
 
+const title = "BC Smash Events | Super Smash Bros in Metro Vancouver & Lower Mainland"
+const description = "The central hub for Smash Bros tournaments across the Lower Mainland. Find competitive events in Vancouver, Burnaby, Surrey, Coquitlam, Richmond, and the Fraser Valley."
+
 const gamesNames = {
   1: "Melee",
   2: "P+",
@@ -26,6 +29,7 @@ if (data && data.length > 0) {
   events = data.map((e) => {
     return {
       name: e.name,
+      label: `${e.name} | ${e.city}`,
       date: new Date(e.startAt * 1000),
       city: e.city,
       url: e.url,
@@ -50,11 +54,11 @@ if (data && data.length > 0) {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Primary Meta Tags -->
-    <title>BC Smash Events</title>
-    <meta name="title" content="BC Smash Events" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta
       name="description"
-      content="View the latest BC smash events for Melee, Ultimate and P+"
+      content={description}
     />
     <meta
       name="google-site-verification"
@@ -64,20 +68,20 @@ if (data && data.length > 0) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bcsmash.ca/" />
-    <meta property="og:title" content="BC Smash Events" />
+    <meta property="og:title" content={title} />
     <meta
       property="og:description"
-      content="View the latest BC smash events for Melee, Ultimate and P+"
+      content={description}
     />
     <meta property="og:image" content="/banner.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://bcsmash.ca/" />
-    <meta property="twitter:title" content="BC Smash Events" />
+    <meta property="twitter:title" content={title} />
     <meta
       property="twitter:description"
-      content="View the latest BC smash events for Melee, Ultimate and P+"
+      content={description}
     />
     <meta property="twitter:image" content="/banner.png" />
     <meta name="robots" content="index, follow" />
@@ -86,6 +90,28 @@ if (data && data.length > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#5c5c5c" />
     <link rel="manifest" href="/manifest.json" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "BC Smash Events",
+        "serviceType": "Esports Tournaments",
+        "areaServed": [
+          { "@type": "City", "name": "Vancouver" },
+          { "@type": "City", "name": "Surrey" },
+          { "@type": "City", "name": "Burnaby" },
+          { "@type": "City", "name": "Richmond" },
+          { "@type": "City", "name": "Coquitlam" },
+          { "@type": "City", "name": "Langley" },
+          { "@type": "City", "name": "Delta" },
+          { "@type": "City", "name": "New Westminster" },
+          { "@type": "City", "name": "North Vancouver" },
+          { "@type": "City", "name": "Port Coquitlam" },
+          { "@type": "City", "name": "Maple Ridge" }
+        ]
+      }
+    </script>
   </head>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNY2ZMBXHH"></script>
