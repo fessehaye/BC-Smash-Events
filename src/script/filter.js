@@ -13,7 +13,11 @@ buttons.forEach((button) => {
 
     if (filter === "Melee") {
       button.classList.toggle("bg-green-800");
-    } else {
+    }
+    else if (filter === "Rivals 2") {
+      button.classList.toggle("bg-red-800");
+    }
+     else {
       button.classList.toggle("bg-pink-800");
     }
 

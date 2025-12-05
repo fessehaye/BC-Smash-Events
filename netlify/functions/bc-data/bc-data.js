@@ -17,7 +17,7 @@ module.exports.handler = async () => {
             countryCode: "CA"
             addrState: "BC"
             upcoming: true
-            videogameIds: ["1", "1386", "2"]
+            videogameIds: ["1", "1386", "2", "53945"]
           }
         }
       ) {
