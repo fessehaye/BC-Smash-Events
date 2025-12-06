@@ -7,7 +7,7 @@ import "../styles/global.css";
 let data = null;
 try {
   const response = await fetch(
-    "https:www.bcsmash.ca/.netlify/functions/bc-data"
+    "https://www.bcsmash.ca/.netlify/functions/bc-data"
   );
   data = await response.json();
 } catch (error) {
